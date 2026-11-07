@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: rwhms
+          POSTGRES_PASSWORD: rwhms_ci_password
+          POSTGRES_DB: rw_hms_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U rwhms -d rw_hms_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      NODE_ENV: test
+      PORT: 4000
+      LOG_LEVEL: error
+      FRONTEND_ORIGIN: http://localhost:3000
+      SWAGGER_ENABLED: 'false'
+      DATABASE_URL: postgres://rwhms:rwhms_ci_password@localhost:5432/rw_hms_test
+      JWT_ACCESS_SECRET: ci-only-access-secret-not-used-anywhere-else-0001
+      JWT_REFRESH_SECRET: ci-only-refresh-secret-not-used-anywhere-else-0002
+      COOKIE_SECRET: ci-only-cookie-secret-not-used-anywhere-else-00003
+      JWT_ACCESS_TTL_SECONDS: 900
+      REFRESH_TOKEN_TTL_DAYS: 7
+      SMTP_HOST: localhost
+      SMTP_PORT: 1025
+      SMTP_SECURE: 'false'
+      MAIL_FROM: 'Rw-HMS CI <ci@rwhms.local>'
+      S3_ENDPOINT: http://localhost:9000
+      S3_REGION: us-east-1
+      S3_ACCESS_KEY: ci
+      S3_SECRET_KEY: ci-secret
+      S3_BUCKET: rw-hms-documents
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run test:e2e
+      - run: npm run build

@@ -1,0 +1,64 @@
+# Render Blueprint for the Rw-HMS API and its Postgres database.
+# Render > New > Blueprint > pick this repository. Values marked `sync: false` are asked for
+# during setup; see README "Deploying to production".
+databases:
+  - name: rw-hms-db
+    databaseName: rw_hms
+    user: rwhms
+    plan: basic-1gb
+    region: frankfurt
+    postgresMajorVersion: '17'
+    # No external connections: only services in this Render account can reach the database.
+    ipAllowList: []
+
+services:
+  - type: web
+    name: rw-hms-api
+    runtime: node
+    region: frankfurt
+    plan: starter
+    # NODE_ENV=production is set below, so dev dependencies (Nest CLI, TypeScript) must be forced.
+    buildCommand: npm ci --include=dev && npm run build
+    preDeployCommand: npm run db:migrate:prod
+    startCommand: npm run start:prod
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: LOG_LEVEL
+        value: info
+      - key: SWAGGER_ENABLED
+        value: 'false'
+      - key: DATABASE_URL
+        fromDatabase:
+          name: rw-hms-db
+          property: connectionString
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: COOKIE_SECRET
+        generateValue: true
+      - key: JWT_ACCESS_TTL_SECONDS
+        value: '900'
+      - key: REFRESH_TOKEN_TTL_DAYS
+        value: '7'
+      # Browser -> Vercel (rewrite) -> Render proxy -> API: two proxy hops in front of Express.
+      - key: TRUST_PROXY
+        value: '2'
+      # The web app's public https URL, e.g. https://rw-hms-web.vercel.app (used in reset links).
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_SECURE
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: MAIL_FROM
+        sync: false
