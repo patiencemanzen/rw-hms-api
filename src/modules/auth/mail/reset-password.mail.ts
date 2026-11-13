@@ -10,28 +10,28 @@ interface ResetCopy {
 
 const COPY: Record<string, ResetCopy> = {
   en: {
-    subject: 'Reset your Rw-HMS password',
+    subject: 'Reset your Global Inc password',
     greeting: (name) => `Hello ${name},`,
     intro: (minutes) =>
-      `We received a request to reset your Rw-HMS password. Use the link below within ${minutes} minutes to choose a new password.`,
+      `We received a request to reset your Global Inc password. Use the link below within ${minutes} minutes to choose a new password.`,
     action: 'Choose a new password',
     ignore:
       'If you did not ask for this, you can ignore this email. Your password will not change.',
   },
   fr: {
-    subject: 'Réinitialisez votre mot de passe Rw-HMS',
+    subject: 'Réinitialisez votre mot de passe Global Inc',
     greeting: (name) => `Bonjour ${name},`,
     intro: (minutes) =>
-      `Nous avons reçu une demande de réinitialisation de votre mot de passe Rw-HMS. Utilisez le lien ci-dessous dans les ${minutes} minutes pour choisir un nouveau mot de passe.`,
+      `Nous avons reçu une demande de réinitialisation de votre mot de passe Global Inc. Utilisez le lien ci-dessous dans les ${minutes} minutes pour choisir un nouveau mot de passe.`,
     action: 'Choisir un nouveau mot de passe',
     ignore:
       "Si vous n'êtes pas à l'origine de cette demande, ignorez cet e-mail. Votre mot de passe ne changera pas.",
   },
   rw: {
-    subject: 'Hindura ijambobanga ryawe rya Rw-HMS',
+    subject: 'Hindura ijambobanga ryawe rya Global Inc',
     greeting: (name) => `Muraho ${name},`,
     intro: (minutes) =>
-      `Twakiriye icyifuzo cyo guhindura ijambobanga ryawe rya Rw-HMS. Koresha iyi link iri hasi mu minota ${minutes} kugira ngo uhitemo ijambobanga rishya.`,
+      `Twakiriye icyifuzo cyo guhindura ijambobanga ryawe rya Global Inc. Koresha iyi link iri hasi mu minota ${minutes} kugira ngo uhitemo ijambobanga rishya.`,
     action: 'Hitamo ijambobanga rishya',
     ignore: 'Niba atari wowe wabisabye, wirengagize iyi imeyili. Ijambobanga ryawe ntirizahinduka.',
   },

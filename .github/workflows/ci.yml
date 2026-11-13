@@ -38,7 +38,7 @@ jobs:
       SMTP_HOST: localhost
       SMTP_PORT: 1025
       SMTP_SECURE: 'false'
-      MAIL_FROM: 'Rw-HMS CI <ci@rwhms.local>'
+      MAIL_FROM: 'Global Inc CI <ci@rwhms.local>'
       S3_ENDPOINT: http://localhost:9000
       S3_REGION: us-east-1
       S3_ACCESS_KEY: ci

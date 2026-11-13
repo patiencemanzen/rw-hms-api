@@ -1,4 +1,4 @@
-# Render Blueprint for the Rw-HMS API and its Postgres database.
+# Render Blueprint for the Global Inc API and its Postgres database.
 # Render > New > Blueprint > pick this repository. Values marked `sync: false` are asked for
 # during setup; see README "Deploying to production".
 databases:

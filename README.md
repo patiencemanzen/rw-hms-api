@@ -1,6 +1,6 @@
-# Rw-HMS API
+# Global Inc API
 
-NestJS backend for **Rw-HMS**, the Rwanda National Hospital Management & Interconnection System.
+NestJS backend for **Global Inc**, the Hospital Management & Interconnection System.
 All business logic, permission checks and database access live here; the web app
 ([`rw-hms-web`](../rw-hms-web)) talks to it only over HTTP, using the OpenAPI spec as the contract.
 
@@ -104,7 +104,7 @@ creates the database, generates the three secrets, and asks for:
 | `FRONTEND_ORIGIN` | The web URL from step 1 (https, no trailing slash) |
 | `SMTP_HOST` / `SMTP_PORT` / `SMTP_SECURE` | From your provider, e.g. `smtp.example.com` / `465` / `true` |
 | `SMTP_USER` / `SMTP_PASSWORD` | Provider credentials (required in production) |
-| `MAIL_FROM` | e.g. `Rw-HMS <no-reply@your-domain>`; must be a sender your provider has verified |
+| `MAIL_FROM` | e.g. `Global Inc <no-reply@your-domain>`; must be a sender your provider has verified |
 
 Each deploy runs `npm run db:migrate:prod` first, then starts the server. Wait until
 `https://<service>.onrender.com/api/health` reports `"status":"ok"`.

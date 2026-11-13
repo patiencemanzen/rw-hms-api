@@ -16,7 +16,7 @@ import type {
 } from './types/seed.types';
 
 const SEED_IP = '10.10.0.12';
-const SEED_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Rw-HMS seed';
+const SEED_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Global Inc seed';
 
 export async function seedActivity(
   ctx: SeedContext,

@@ -6,8 +6,8 @@ import { ACCESS_COOKIE } from '../../modules/auth/auth.constants';
 
 export function buildOpenApiDocument(app: INestApplication): OpenAPIObject {
   const config = new DocumentBuilder()
-    .setTitle('Rw-HMS API')
-    .setDescription('Rwanda National Hospital Management & Interconnection System')
+    .setTitle('Global Inc API')
+    .setDescription('Hospital Management & Interconnection System')
     .setVersion('1.0')
     .addCookieAuth(ACCESS_COOKIE)
     .addSecurityRequirements('cookie')
