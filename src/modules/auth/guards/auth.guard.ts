@@ -1,9 +1,9 @@
 import { type CanActivate, type ExecutionContext, HttpStatus, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import type { Request } from 'express';
-import { ErrorCode } from '@/common/constants/error-codes';
-import { IS_PUBLIC_KEY } from '@/common/decorators/public.decorator';
-import { AppException } from '@/common/exceptions/app.exception';
+import { ErrorCode } from '../../../common/constants/error-codes';
+import { IS_PUBLIC_KEY } from '../../../common/decorators/public.decorator';
+import { AppException } from '../../../common/exceptions/app.exception';
 import { AuthCookies } from '../auth.cookies';
 import { ACCESS_COOKIE, CSRF_COOKIE, CSRF_HEADER } from '../auth.constants';
 import { AuthRepository } from '../auth.repository';

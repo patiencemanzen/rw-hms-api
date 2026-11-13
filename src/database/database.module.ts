@@ -2,7 +2,7 @@ import { Global, Inject, Module, type OnApplicationShutdown } from '@nestjs/comm
 import type { ConfigType } from '@nestjs/config';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
-import { dbConfig } from '@/config/db.config';
+import { dbConfig } from '../config/db.config';
 import { DRIZZLE, PG_POOL } from './database.constants';
 import * as schema from './schema';
 import type { Database } from './types/database.types';

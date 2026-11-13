@@ -2,11 +2,11 @@ import { HttpStatus, Inject, Injectable, Logger } from '@nestjs/common';
 import type { ConfigType } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { hash, verify } from 'argon2';
-import { ErrorCode } from '@/common/constants/error-codes';
-import { AppException } from '@/common/exceptions/app.exception';
-import { appConfig } from '@/config/app.config';
-import { authConfig } from '@/config/auth.config';
-import type { User } from '@/database/schema';
+import { ErrorCode } from '../../common/constants/error-codes';
+import { AppException } from '../../common/exceptions/app.exception';
+import { appConfig } from '../../config/app.config';
+import { authConfig } from '../../config/auth.config';
+import type { User } from '../../database/schema';
 import { AuditService } from '../audit/audit.service';
 import { MailService } from '../mail/mail.service';
 import {

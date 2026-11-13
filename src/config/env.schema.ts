@@ -69,13 +69,8 @@ export const envSchema = z
         message: 'must use https in production',
       });
     }
-    if (!env.SMTP_USER || !env.SMTP_PASSWORD) {
-      ctx.addIssue({
-        code: 'custom',
-        path: ['SMTP_USER'],
-        message: 'SMTP credentials are required in production',
-      });
-    }
+    // SMTP credentials are optional so the API can run before email is set up; MailService warns
+    // at startup and password-reset emails fail (logged) until SMTP_USER/SMTP_PASSWORD are set.
   });
 
 export type Env = z.infer<typeof envSchema>;

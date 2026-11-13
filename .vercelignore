@@ -1,0 +1,12 @@
+# Keep local secrets and build output out of `vercel deploy` uploads (the CLI does not read .gitignore).
+.env
+.env.*
+!.env.example
+node_modules
+dist
+coverage
+test
+docker
+docker-compose.yml
+.github
+.husky

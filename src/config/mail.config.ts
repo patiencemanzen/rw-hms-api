@@ -10,5 +10,7 @@ export const mailConfig = registerAs('mail', () => {
     password: env.SMTP_PASSWORD,
     secure: env.SMTP_SECURE,
     from: env.MAIL_FROM,
+    // Development uses unauthenticated Mailpit; anywhere else, missing credentials mean email is off.
+    credentialsExpected: env.NODE_ENV === 'production',
   };
 });

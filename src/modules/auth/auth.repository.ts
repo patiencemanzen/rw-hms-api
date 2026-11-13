@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { and, asc, eq, gt, isNull, or, sql } from 'drizzle-orm';
-import { DRIZZLE } from '@/database/database.constants';
+import { DRIZZLE } from '../../database/database.constants';
 import {
   facilities,
   passwordResetTokens,
@@ -10,8 +10,8 @@ import {
   type NewSession,
   type Session,
   type User,
-} from '@/database/schema';
-import type { Database, DbExecutor } from '@/database/types/database.types';
+} from '../../database/schema';
+import type { Database, DbExecutor } from '../../database/types/database.types';
 import type { FacilityMembership } from './types/auth.types';
 
 @Injectable()

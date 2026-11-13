@@ -11,3 +11,6 @@ openapi.json
 .vscode/*
 !.vscode/extensions.json
 *.log
+
+# vercel
+.vercel

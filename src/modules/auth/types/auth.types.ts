@@ -1,5 +1,5 @@
 import type { Request } from 'express';
-import type { Role } from '@/database/schema/enums';
+import type { Role } from '../../../database/schema/enums';
 
 export interface AccessTokenPayload {
   sub: string;

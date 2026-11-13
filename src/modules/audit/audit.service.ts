@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { DRIZZLE } from '@/database/database.constants';
-import { auditLogs, type NewAuditLog } from '@/database/schema';
-import type { Database, DbExecutor } from '@/database/types/database.types';
+import { DRIZZLE } from '../../database/database.constants';
+import { auditLogs, type NewAuditLog } from '../../database/schema';
+import type { Database, DbExecutor } from '../../database/types/database.types';
 
 @Injectable()
 export class AuditService {

@@ -12,8 +12,8 @@ import {
 } from '@nestjs/swagger';
 import { Throttle } from '@nestjs/throttler';
 import type { Request, Response } from 'express';
-import { Public } from '@/common/decorators/public.decorator';
-import { ErrorResponseDto } from '@/common/dto/error-response.dto';
+import { Public } from '../../common/decorators/public.decorator';
+import { ErrorResponseDto } from '../../common/dto/error-response.dto';
 import { AuthCookies, clientInfo } from './auth.cookies';
 import { CSRF_COOKIE, REFRESH_COOKIE } from './auth.constants';
 import { AuthService, type IssuedTokens } from './auth.service';

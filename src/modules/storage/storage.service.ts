@@ -7,9 +7,9 @@ import {
 } from '@aws-sdk/client-s3';
 import { HttpStatus, Inject, Injectable } from '@nestjs/common';
 import type { ConfigType } from '@nestjs/config';
-import { ErrorCode } from '@/common/constants/error-codes';
-import { AppException } from '@/common/exceptions/app.exception';
-import { storageConfig } from '@/config/storage.config';
+import { ErrorCode } from '../../common/constants/error-codes';
+import { AppException } from '../../common/exceptions/app.exception';
+import { storageConfig } from '../../config/storage.config';
 import type { StoredObject, UploadObjectInput } from './types/storage.types';
 
 @Injectable()

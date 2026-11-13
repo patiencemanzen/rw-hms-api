@@ -6,7 +6,7 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { HealthCheck, type HealthCheckResult } from '@nestjs/terminus';
-import { Public } from '@/common/decorators/public.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 import { HealthResponseDto } from './dto/health-response.dto';
 import { HealthService } from './health.service';
 

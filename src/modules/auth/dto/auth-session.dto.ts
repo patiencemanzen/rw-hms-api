@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { roleEnum, type Role } from '@/database/schema/enums';
+import { roleEnum, type Role } from '../../../database/schema/enums';
 
 export class SessionUserDto {
   @ApiProperty({ format: 'uuid' })
